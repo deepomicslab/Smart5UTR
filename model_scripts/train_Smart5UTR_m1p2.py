@@ -144,7 +144,7 @@ def main():
     scaler.fit(rawdata.get_labels().to_numpy().reshape(-1, 1))
 
     ## save scaler
-    scaler = joblib.dump("../models/Auto-m1p/egfp_m1pseudo2_neck100_autoencoder_200k.scaler")
+    joblib.dump(scaler, "../models/Auto-m1p/egfp_m1pseudo2_neck100_autoencoder_200k.scaler")
 
     rls_train = scaler.transform(rawdata.get_labels()[e_test_num:].to_numpy().reshape(-1, 1))
     rls_test = rawdata.get_labels()[:e_test_num].to_numpy().reshape(-1, 1)
