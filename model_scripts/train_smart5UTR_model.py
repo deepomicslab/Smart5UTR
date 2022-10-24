@@ -276,7 +276,7 @@ def finetune_model():
     print("Evaluate on test data: ")
     print("decoded output accuracy on test data = ", results[3])
 
+    
+train_model()
 # finetune_model()
-
-
-test_model()
+# test_model()
