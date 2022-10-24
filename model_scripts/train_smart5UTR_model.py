@@ -173,7 +173,7 @@ def train_model():
 
 
     autoencoder.fit(x=x_train, y={"decoded_output":x_train,"rl_output":rls_train},
-                    epochs=150,
+                    epochs=20,
                     batch_size=128,
                     shuffle=True,
                     validation_data = (x_val, {"decoded_output": x_val, "rl_output": rls_val})
@@ -227,8 +227,6 @@ def test_model():
     results = autoencoder.evaluate(x=x_test, y=[x_test, rls_test[0]], batch_size=128)
     print("Evaluate on test data: ")
     print("decoded output accuracy on test data = ", results[3])
-
-# train_model()
 
 def finetune_model():
 
@@ -284,7 +282,7 @@ def finetune_model():
 train_model()
 
 ## use this function to finetune the SMART5UTR model 
-# finetune_model()
+finetune_model()
 
 ## test the decoded output accuracy and r-squared on hold-out test dataset.
-# test_model()
+test_model()
