@@ -7,9 +7,13 @@ from keras import backend as K
 from keras import layers
 from sklearn.metrics import r2_score
 from sklearn import preprocessing
+import os
+import sys
 import tensorflow as tf
 gpus= tf.config.list_physical_devices('GPU')
 tf.config.experimental.set_memory_growth(gpus[0], True)
+
+cwd = os.getcwd()
 
 class RawData():
     def __init__(self, fname):
@@ -151,7 +155,7 @@ def train_model():
     ## load dataset and split train and test data
     e_test_num = 20000
     e_val_idx =200000
-    rawdata = RawData("../data/GSM3130440_egfp_m1pseudo_2.csv")
+    rawdata = RawData(cwd + "../data/GSM3130440_egfp_m1pseudo_2.csv")
     x_train = rawdata.get_onehotmtxs()[e_test_num:e_val_idx]
     x_val = rawdata.get_onehotmtxs()[e_val_idx:]
     x_test = rawdata.get_onehotmtxs()[:e_test_num]
@@ -160,7 +164,7 @@ def train_model():
     scaler.fit(rawdata.get_labels()[e_test_num:e_val_idx].to_numpy().reshape(-1, 1))
 
     ## save scaler
-    joblib.dump(scaler, filename="../models/egfp_m1pseudo2.scaler")
+    joblib.dump(scaler, filename= cwd + "../models/egfp_m1pseudo2.scaler")
 
     rls_train = scaler.transform(rawdata.get_labels()[e_test_num:e_val_idx].to_numpy().reshape(-1, 1))
     rls_val = scaler.transform(rawdata.get_labels()[e_val_idx:].to_numpy().reshape(-1, 1))
@@ -175,7 +179,7 @@ def train_model():
                     validation_data = (x_val, {"decoded_output": x_val, "rl_output": rls_val})
                     )
 
-    autoencoder.save('../models/Smart5UTR/Smart5UTR_egfp_m1pseudo2-weighted-MSE.h5')
+    autoencoder.save(cwd + '../models/Smart5UTR/Smart5UTR_egfp_m1pseudo2-weighted-MSE.h5')
 
     ## predict and show the r-squared result
     (decoded_data, rl_pred) = autoencoder.predict(x_test)
@@ -199,17 +203,17 @@ def test_model():
     }
 
     autoencoder = keras.models.load_model(
-        '../models/Smart5UTR/Smart5UTR_egfp_m1pseudo2-weighted-MSE.h5',
+        cwd + '../models/Smart5UTR/Smart5UTR_egfp_m1pseudo2-weighted-MSE.h5',
         compile=False)
     autoencoder.compile(loss=losses,
                 metrics={'rl_output': 'mse', 'decoded_output': 'accuracy'})
-    scaler = joblib.load("../models/egfp_m1pseudo2.scaler")
+    scaler = joblib.load(cwd + "../models/egfp_m1pseudo2.scaler")
 
 
     ## load dataset and split train and test data
     e_test_num = 20000
 
-    rawdata = RawData("../data/GSM3130440_egfp_m1pseudo_2.csv")
+    rawdata = RawData( cwd + "../data/GSM3130440_egfp_m1pseudo_2.csv")
     x_test = rawdata.get_onehotmtxs()[:e_test_num]
     rls_test = scaler.transform(rawdata.get_labels()[:e_test_num].to_numpy().reshape(-1, 1))
 
@@ -237,18 +241,18 @@ def finetune_model():
     adam = keras.optimizers.Adam(lr=1e-05, beta_1=0.9, beta_2=0.999, epsilon=1e-08)
 
 
-    autoencoder = keras.models.load_model('../models/Smart5UTR/Smart5UTR_egfp_m1pseudo2-weighted-MSE.h5',compile=False)
+    autoencoder = keras.models.load_model(cwd + '../models/Smart5UTR/Smart5UTR_egfp_m1pseudo2-weighted-MSE.h5',compile=False)
     autoencoder.compile(optimizer=adam, loss=losses, loss_weights=lossWeights,
                 metrics={'rl_output': 'mse', 'decoded_output': 'accuracy'})
 
-    scaler = joblib.load("../models/egfp_m1pseudo2.scaler")
+    scaler = joblib.load(cwd + "../models/egfp_m1pseudo2.scaler")
 
 
 
     ## load dataset and split train and test data
     e_test_num = 20000
     e_val_idx =200000
-    rawdata = RawData("../data/GSM3130440_egfp_m1pseudo_2.csv")
+    rawdata = RawData(cwd + "../data/GSM3130440_egfp_m1pseudo_2.csv")
     x_train = rawdata.get_onehotmtxs()[e_test_num:e_val_idx]
     x_val = rawdata.get_onehotmtxs()[e_val_idx:]
     x_test = rawdata.get_onehotmtxs()[:e_test_num]
@@ -264,7 +268,7 @@ def finetune_model():
                     validation_data = (x_val, {"decoded_output": x_val, "rl_output": rls_val}),
                     )
 
-    autoencoder.save('../models/Smart5UTR/Smart5UTR_egfp_m1pseudo2_Model.h5')
+    autoencoder.save( cwd + '../models/Smart5UTR/Smart5UTR_egfp_m1pseudo2_Model.h5')
 
     ## predict and show the r-squared result
     (decoded_data, rl_pred) = autoencoder.predict(x_test)
@@ -278,5 +282,9 @@ def finetune_model():
 
     
 train_model()
+
+## use this function to finetune the SMART5UTR model 
 # finetune_model()
+
+## test the decoded output accuracy and r-squared on hold-out test dataset.
 # test_model()
