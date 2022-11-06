@@ -26,14 +26,14 @@ python -m pip install -r requirements.txt
 
 ## Train a model using Smart5UTR Frame
 
-The training data used in this project could be download from *Google Drive*. We provide **Smart5UTR/model_scripts/train_smart5UTR_model.py** to train a Smart5UTR model with the ribosomal binding capacity of the 5' UTR as a label from example data directly.
+The training data used in this project could be download from [*Google Drive*](https://drive.google.com/drive/folders/1WBFdi0Nv15Epu3FJmOJFmKO5XoTxz1Q8?usp=share_link). We provide **Smart5UTR/model_scripts/train_smart5UTR_model.py** to train a Smart5UTR model with the ribosomal binding capacity of the 5' UTR as a label from example data directly.
 ```
 python Smart5UTR/model_scripts/train_smart5UTR_model.py
 ```
 
 ## Use the well trained model
 
-The trained models can be downloaded from Google Drive. Download the model and place it in the **models/Smart5UTR/** directory for use. 
+The trained models can be downloaded from [*Google Drive*](https://drive.google.com/drive/folders/1WBFdi0Nv15Epu3FJmOJFmKO5XoTxz1Q8?usp=share_link). Please download the model and place it in the **models/Smart5UTR/** directory for use. 
 
 To **predict the MRL value** of any 5' UTR using Smart5UTR, please refer to the tutorial **model_scripts/MRL_prediction_by_Smart5UTR.ipynb**
 
