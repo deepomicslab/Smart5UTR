@@ -36,6 +36,3 @@ python Smart5UTR/model_scripts/train_smart5UTR_model.py
 The trained models can be downloaded from [*Google Drive*](https://drive.google.com/drive/folders/1WBFdi0Nv15Epu3FJmOJFmKO5XoTxz1Q8?usp=share_link). Please download the model and place it in the **models/Smart5UTR/** directory for use. 
 
 To **predict the MRL value** of any 5' UTR using Smart5UTR, please refer to the tutorial **model_scripts/MRL_prediction_by_Smart5UTR.ipynb**
-
-To optimize 5' UTR from any given 50 nt sequence, please refer to the tutorial ... [to be fixed]
-
