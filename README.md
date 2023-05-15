@@ -1,5 +1,6 @@
 # Smart5UTR
-MTAE-based 5UTR design model
+An MTAE-based 5UTR design model.
+![image](https://github.com/deepomicslab/Smart5UTR/raw/main/figs/smart5utr-workflow.png)
 
 ## Installation
 The required software and packages dependencies are listed below:
