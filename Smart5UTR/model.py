@@ -64,3 +64,33 @@ def build_model(seqlen=50, nbr_filters = 160, filter_len = 8, border_mode = 'sam
                         metrics={'rl_output': 'mse', 'decoded_output': 'accuracy'})
 
     return autoencoder
+
+def split_autoencoder(model):
+
+    for layer in model.layers[:]:  ## frozen
+        layer.trainable = False
+
+    # Split the model into encoder and decoder
+    decolayer_index, necklayer_index = None, None
+    for i, layer in enumerate(model.layers):
+        if layer.name == 'decoded_input': # Find the 'decoded_input' layer and its input shape
+            decolayer_index = i
+            decoded_input_len = layer.input_shape[1]
+
+            if decoded_input_len is None:
+                raise ValueError("No layer named 'decoded_input' found in the model.")
+
+        elif layer.name == 'decoded_drop1':
+            necklayer_index = i
+
+    # Create the decoder input with the shape found above
+    decoder_input = keras.Input(shape=decoded_input_len)
+    de = model.layers[decolayer_index](decoder_input)
+    for layer in model.layers[necklayer_index:]:
+        de = layer(de)
+
+    encoder = keras.Model(inputs=model.input, outputs=model.get_layer('concatenate').output)
+    decoder = keras.Model(inputs=decoder_input, outputs=de)
+
+    return encoder, decoder, decoded_input_len
+
