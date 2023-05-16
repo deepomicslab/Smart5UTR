@@ -36,11 +36,12 @@ python -m pip install -r requirements.txt
 
 ## Train a model using Smart5UTR Frame
 
-The source data used to train Smart5UTR was obtained from the public Gene Expression Omnibus database, accessible by accession number GSE114002. The dataset could be also download from [*Google Drive*](https://drive.google.com/drive/folders/1WBFdi0Nv15Epu3FJmOJFmKO5XoTxz1Q8?usp=share_link). We provide **Smart5UTR/tutorials/train_Smart5UTR.py** to train a Smart5UTR model with the ribosomal binding capacity of the 5' UTR as a label from example data directly.
+The source data used to train Smart5UTR was obtained from the public Gene Expression Omnibus database, accessible by accession number GSE114002. The dataset could be also download from [*Google Drive*](https://drive.google.com/drive/folders/1WBFdi0Nv15Epu3FJmOJFmKO5XoTxz1Q8?usp=share_link). We provide `Smart5UTR/tutorials/train_Smart5UTR.py` to train a Smart5UTR model with the ribosomal binding capacity of the 5' UTR as a label from example data directly.
 
 ## Use the well trained model for prediction or 5' UTR design
 
-The trained `.h5` model could be downloaded from [*Google Drive*](https://drive.google.com/drive/folders/1WBFdi0Nv15Epu3FJmOJFmKO5XoTxz1Q8?usp=share_link). Please download the model and place it in the **models/Smart5UTR/** directory before running the tutorial code. 
+The trained `.h5` model could be downloaded from [*Google Drive*](https://drive.google.com/drive/folders/1WBFdi0Nv15Epu3FJmOJFmKO5XoTxz1Q8?usp=share_link). Please download the model and place it in the `models/Smart5UTR/` directory before running the tutorial code. 
 
-To **predict the MRL value** of any 5' UTR using Smart5UTR, please refer to the tutorial **tutorials/MRL_prediction_by_Smart5UTR.ipynb**
-To **design the 5' UTR** from any reference sequence, please refer to the tutorial **tutorials/design_5UTR_by_Smart5UTR.ipynb**
+To **predict the MRL value** of any 5' UTR using Smart5UTR, please refer to the tutorial `tutorials/MRL_prediction_by_Smart5UTR.ipynb`.
+
+To **design the 5' UTR** from any reference sequence, please refer to the tutorial `tutorials/design_5UTR_by_Smart5UTR.ipynb`
