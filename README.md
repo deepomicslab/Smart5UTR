@@ -15,11 +15,11 @@ An MTAE-based 5UTR design model.
 
 The required software and packages dependencies are listed below:
 ```
-h5py
 joblib
-Kera
+Keras
 matplotlib
 pandas
+numpy
 scikit-learn
 scipy
 tensorflow-gpu
