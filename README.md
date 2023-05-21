@@ -28,6 +28,8 @@ cudnn
 
 We have provided the requirements.txt file for pip. You can use conda and pip to automatically prepare the environment.
 ```
+git clone https://github.com/deepomicslab/Smart5UTR.git
+cd Smart5UTR
 conda create -n Smart5UTR python=3.8
 conda activate Smart5UTR
 python -m pip install -r requirements.txt
@@ -44,4 +46,4 @@ The well trained `.h5` model could be downloaded from [*Google Drive*](https://d
 
 To **predict the MRL value** of any 5' UTR using Smart5UTR, please refer to the tutorial `tutorials/MRL_prediction_by_Smart5UTR.ipynb`.
 
-To **design the 5' UTR** from any reference sequence, please refer to the tutorial `tutorials/design_5UTR_by_Smart5UTR.ipynb`
+To **design the 5' UTR** from any reference sequence, please refer to the tutorial `tutorials/design_5UTR_by_Smart5UTR.ipynb`.
