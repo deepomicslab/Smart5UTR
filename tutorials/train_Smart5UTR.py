@@ -16,7 +16,7 @@ tf.config.experimental.set_memory_growth(gpus[0], True)
 # Step 1. Train the initial model using the default parameters and data
 train_model(data_path = "../data/GSM3130440_egfp_m1pseudo_2.csv",
             save_path = "../models/Smart5UTR/Smart5UTR_egfp_m1pseudo2_Model_pre.h5",
-            epochs = 2, batch_size = 128)
+            epochs = 20, batch_size = 128)
 
 # Step 2. Continue to train the model using the same dataset and adjusted loss weight
 # This step fine-tunes the model (trained in Step 1) with the same dataset, but with adjusted hyperparameterss
