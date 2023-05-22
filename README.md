@@ -1,6 +1,7 @@
 # Smart5UTR
 
-An MTAE-based 5UTR design model.
+Smart5UTR is a novel deep generative model designed for creating N1-methyl-pseudouridine (m1Ψ) 5' UTRs in mRNA sequences. Utilizing a multi-task autoencoder framework, Smart5UTR efficiently generates 5' UTR sequences by leveraging the latent features learned from a large dataset. The performance of Smart5UTR-designed mRNA has been validated through in vitro and in vivo experiments. This powerful tool streamlines the design of m1Ψ-5' UTRs, contributing to the development of more effective mRNA therapeutics.
+
 ![image](https://github.com/deepomicslab/Smart5UTR/raw/main/figs/smart5utr-workflow.png)
 
 ## Repository Structure
@@ -35,10 +36,28 @@ conda activate Smart5UTR
 python -m pip install -r requirements.txt
 ```
 
+The model was developed and tested in an environment with the following specifications:
+
+- CUDA 11.1
+- cudatoolkit-11.1.74
+- cuDNN 8.0.4
+- TensorFlow 2.4.1
+
+Please deploy the environment according to your hardware capabilities. If you have not yet configured the relevant GPU environment, you can install the appropriate cuDNN with the following conda command:
+
+```
+conda install -c nvidia cudnn=<version>  ## Replace <version> with the cuDNN version that is compatible with your CUDA version. 
+```
+
 
 ## Train a model using Smart5UTR Frame
 
-The source data used to train Smart5UTR was obtained from the public Gene Expression Omnibus database, accessible by accession number GSE114002. The dataset can also be downloaded from [*Google Drive*](https://drive.google.com/drive/folders/1WBFdi0Nv15Epu3FJmOJFmKO5XoTxz1Q8?usp=share_link). We provide `Smart5UTR/tutorials/train_Smart5UTR.py` to show how to train a Smart5UTR model using the ribosome binding capacity of the 5' UTR as a label.
+The dataset used to train Smart5UTR could be downloaded from [*Google Drive*](https://drive.google.com/drive/folders/1WBFdi0Nv15Epu3FJmOJFmKO5XoTxz1Q8?usp=share_link). We provide `Smart5UTR/tutorials/train_Smart5UTR.py` to show how to train a Smart5UTR model using the ribosome binding capacity of the 5' UTR as a label. 
+
+This dataset is from the public Gene Expression Omnibus database, accessible via accession number GSE114002, which is derived from the following publication:
+Sample, P.J., Wang, B., Reid, D.W. et al. Human 5′ UTR design and variant effect prediction from a massively parallel translation assay. Nat Biotechnol 37, 803–809 (2019). https://doi.org/10.1038/s41587-019-0164-5
+
+If you wish to use data from other sources, we recommend converting it to a similar file format and placing it in the data directory.
 
 ## Use the well trained model for prediction or 5' UTR design
 
