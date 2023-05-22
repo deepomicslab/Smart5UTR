@@ -55,9 +55,10 @@ conda install -c nvidia cudnn=<version>  ## Replace <version> with the cuDNN ver
 The dataset used to train Smart5UTR could be downloaded from [*Google Drive*](https://drive.google.com/drive/folders/1WBFdi0Nv15Epu3FJmOJFmKO5XoTxz1Q8?usp=share_link). We provide `Smart5UTR/tutorials/train_Smart5UTR.py` to show how to train a Smart5UTR model using the ribosome binding capacity of the 5' UTR as a label. 
 
 This dataset is from the public Gene Expression Omnibus database, accessible via accession number GSE114002, which is derived from the following publication:
+
 Sample, P.J., Wang, B., Reid, D.W. et al. Human 5′ UTR design and variant effect prediction from a massively parallel translation assay. Nat Biotechnol 37, 803–809 (2019). https://doi.org/10.1038/s41587-019-0164-5
 
-If you wish to use data from other sources, we recommend converting it to a similar file format and placing it in the data directory.
+If you wish to use data from other sources, we recommend converting it to a similar file format and placing it in the `data` directory.
 
 ## Use the well trained model for prediction or 5' UTR design
 
