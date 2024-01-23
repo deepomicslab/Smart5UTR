@@ -1,6 +1,6 @@
 # Smart5UTR
 
-Smart5UTR is a novel deep generative model designed for creating N1-methyl-pseudouridine (m1Ψ) 5' UTRs in mRNA sequences. Utilizing a multi-task autoencoder framework, Smart5UTR efficiently generates 5' UTR sequences by leveraging the latent features learned from a large dataset. The performance of Smart5UTR-designed mRNA has been validated through in vitro and in vivo experiments. This powerful tool streamlines the design of m1Ψ-5' UTRs, contributing to the development of more effective mRNA therapeutics.
+Smart5UTR is a novel deep generative model designed for creating N1-methyl-pseudouridine (m1Ψ) 5' UTRs in mRNA sequences. Utilizing a multi-task autoencoder framework, Smart5UTR efficiently generates 5' UTR sequences by leveraging the latent features learned from a large dataset. The performance of Smart5UTR-designed mRNA has been validated through in vitro and in vivo experiments. This powerful tool streamlines the design of m1Ψ-5' UTRs, contributing to developing more effective mRNA therapeutics.
 
 ![image](https://github.com/deepomicslab/Smart5UTR/raw/main/figs/smart5utr-workflow.png)
 
@@ -60,9 +60,9 @@ Sample, P.J., Wang, B., Reid, D.W. et al. Human 5′ UTR design and variant effe
 
 If you wish to use data from other sources, we recommend converting it to a similar file format and placing it in the `data` directory.
 
-## Use the well trained model for prediction or 5' UTR design
+## Use the well-trained model for prediction or 5' UTR design
 
-The well trained `.h5` model could be downloaded from [*Google Drive*](https://drive.google.com/drive/folders/1WBFdi0Nv15Epu3FJmOJFmKO5XoTxz1Q8?usp=share_link). Please download the model and place it in the `models/Smart5UTR/` directory before running the tutorial code. 
+The well-trained `.h5` model could be downloaded from [*Google Drive*](https://drive.google.com/drive/folders/1WBFdi0Nv15Epu3FJmOJFmKO5XoTxz1Q8?usp=share_link). Please download the model and place it in the `models/Smart5UTR/` directory before running the tutorial code. 
 
 To **predict the MRL value** of any 5' UTR using Smart5UTR, please refer to the tutorial `tutorials/MRL_prediction_by_Smart5UTR.ipynb`.
 
