@@ -2,7 +2,7 @@
 
 Smart5UTR is a novel deep generative model designed for creating N1-methyl-pseudouridine (m1Ψ) 5' UTRs in mRNA sequences. Utilizing a multi-task autoencoder framework, Smart5UTR efficiently generates 5' UTR sequences by leveraging the latent features learned from a large dataset. The performance of Smart5UTR-designed mRNA has been validated through in vitro and in vivo experiments. This powerful tool streamlines the design of m1Ψ-5' UTRs, contributing to developing more effective mRNA therapeutics.
 
-![image](https://github.com/deepomicslab/Smart5UTR/raw/main/figs/smart5utr-workflow.png)
+![image](https://github.com/deepomicslab/Smart5UTR/raw/main/figs/workflow.png)
 
 ## Repository Structure
 
