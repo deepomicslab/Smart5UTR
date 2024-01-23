@@ -67,3 +67,16 @@ The well-trained `.h5` model could be downloaded from [*Google Drive*](https://d
 To **predict the MRL value** of any 5' UTR using Smart5UTR, please refer to the tutorial `tutorials/MRL_prediction_by_Smart5UTR.ipynb`.
 
 To **design the 5' UTR** from any reference sequence, please refer to the tutorial `tutorials/design_5UTR_by_Smart5UTR.ipynb`.
+
+## Citation
+
+If you find our work useful in your research or if you use parts of this code in your own projects, please consider citing our publication:
+
+```bibtex
+@article{tang2023novel,
+  title={A novel deep generative model for mRNA vaccine development: Designing 5ʹ UTRs with N1-methyl-pseudouridine modification},
+  author={Tang, Xiaoshan and Huo, Miaozhe and Chen, Yuting and Huang, Hai and Qin, Shugang and Luo, Jiaqi and Qin, Zeyi and Jiang, Xin and Liu, Yongmei and Duan, Xing and others},
+  journal={Acta Pharmaceutica Sinica B},
+  year={2023},
+  publisher={Elsevier}
+}
